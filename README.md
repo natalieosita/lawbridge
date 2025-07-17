@@ -45,7 +45,7 @@ LawBridge is a FastAPI-powered API that makes the Constitution of Kenya accessib
 
 1. **Clone the repository**
    ```sh
-   git clone <https://github.com/Currybroketherecord/lawbridge.git>
+   git clone https://github.com/Currybroketherecord/lawbridge.git
    cd lawbridge
    ```
 
