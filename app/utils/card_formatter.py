@@ -1,4 +1,4 @@
-from app.utils.reference_db import reference_lookup
+from app.utils.reference_db import global_references, reference_lookup
 
 def format_explainer_card(resp: dict) -> dict:
     confidence_score = 0.65 if resp["tone"] in ["formal", "neutral"] else 0.9
@@ -21,8 +21,8 @@ def format_explainer_card(resp: dict) -> dict:
     } if confidence_score < 0.7 else None
 
     summary = resp["summary"]
-    references = reference_lookup.get(resp["article_number"], [])
-
+    article_refs = reference_lookup.get(resp["article_number"], [])
+    all_refs = global_references + article_refs
     formatted_response = {
         "cardType": "explainer",
         "articleNumber": resp["article_number"],
@@ -36,7 +36,7 @@ def format_explainer_card(resp: dict) -> dict:
         "confidence": confidence_score,
         "lawyerReferral": lawyer_referral,
         "language": "en",
-        "references": references
+        "references": all_refs
     }
     # Optionally keep this debug print:
     # print("[DEBUG] Formatter output:", formatted_response)

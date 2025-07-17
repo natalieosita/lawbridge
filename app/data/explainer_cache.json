@@ -1,93 +1,29 @@
 {
-  "65_student": {
-    "article_number": 65,
-    "title": "Landholding by non-citizens",
-    "summary": " A person who is not a citizen may hold land on the basis of leasehold tenure only . Parliament may enact legislation to make further provision for the operation of this Article .",
-    "tone": "student",
-    "raw_text": "(1) A person who is not a citizen may hold land on the basis of leasehold tenure only, and any such lease, however granted, shall not exceed ninety-nine years. (2) If a provision of any agreement, deed, conveyance or document of whatever nature purports to confer on a person who is not a citizen an interest in land greater than a ninety-nine year lease, the provision shall be regarded as conferrin..."
-  },
-  "37_neutral": {
-    "article_number": 37,
-    "title": "Assembly, demonstration, picketing and petition",
-    "summary": " Every person has the right, peaceably and unarmed, to assemble, demonstrate, to picket, and to present petitions to public authorities . Just summarize clearly with no stylistic twist .",
+  "121_neutral": {
+    "cardType": "explainer",
+    "articleNumber": 121,
+    "title": "Quorum",
     "tone": "neutral",
-    "raw_text": "Every person has the right, peaceably and unarmed, to assemble, to demonstrate, to picket, and to present petitions to public authorities."
-  },
-  "33_neutral": {
-    "article_number": 33,
-    "title": "Freedom of expression",
-    "summary": " Every person has the right to freedom of expression, which includes freedom of artistic creativity, academic freedom and academic freedom . The right does not extend to propaganda for war, incitement to violence, hate speech or advocacy of hatred .",
-    "tone": "neutral",
-    "raw_text": "(1) Every person has the right to freedom of expression, which includes— (a) freedom to seek, receive or impart information or ideas; (b) freedom of artistic creativity; and (c) academic freedom and freedom of scientiﬁc research. (2) The right to freedom of expression does not extend to— (a) propaganda for war; (b) incitement to violence; (c) hate speech; or (d) advocacy of hatred that— (i) consti..."
-  },
-  "36_neutral": {
-    "article_number": 36,
-    "title": "Freedom of association",
-    "summary": " Article Text: Every person has the right to freedom of association . A person shall not be compelled to join an association of any kind . There shall be a right to have a fair hearing before a registration is cancelled .",
-    "tone": "neutral",
-    "raw_text": "(1) Every person has the right to freedom of association, which includes the right to form, join or participate in the activities of an association of any kind. (2) A person shall not be compelled to join an association of any kind. (3) Any legislation that requires registration of an association of any kind shall provide that— (a) registration may not be withheld or withdrawn unreasonably; and (b..."
-  },
-  "37_student": {
-    "article_number": 37,
-    "title": "Assembly, demonstration, picketing and petition",
-    "summary": " Every person has the right, peaceably and unarmed, to assemble, demonstrate, to picket, and to present petitions to public authorities . Explain like a high school teacher guiding students .",
-    "tone": "student",
-    "raw_text": "Every person has the right, peaceably and unarmed, to assemble, to demonstrate, to picket, and to present petitions to public authorities."
-  },
-  "37_formal": {
-    "article_number": 37,
-    "title": "Assembly, demonstration, picketing and petition",
-    "summary": " Every person has the right, peaceably and unarmed, to assemble, to demonstrate, to picket, and to present petitions to public authorities . Use professional, legal-style summary .",
-    "tone": "formal",
-    "raw_text": "Every person has the right, peaceably and unarmed, to assemble, to demonstrate, to picket, and to present petitions to public authorities."
-  },
-  "42_student": {
-    "article_number": 42,
-    "title": "Environment",
-    "summary": " Article: Every person has the right to a clean and healthy environment . Article: The right to have the environment protected for the beneﬁt of present and future generations through legislative and other measures, particularly those contemplated in Article 69; and (b) to have obligations relating to the environment ful ﬁlled under Article 70 .",
-    "tone": "student",
-    "raw_text": "Every person has the right to a clean and healthy environment, which includes the right— (a) to have the environment protected for the beneﬁt of present and future generations through legislative and other measures, particularly those contemplated in Article 69; and (b) to have obligations relating to the environment fulﬁlled under Article 70."
-  },
-  "2_student": {
-    "article_number": 2,
-    "title": "Supremacy of this Constitution",
-    "summary": " This Constitution is the supreme law of the Republic and binds all persons and all State organs at both levels of government . The validity or legality of this Constitution is not subject to challenge by or before any court or other State organ . The general rules of international law shall form part of the law of Kenya .",
-    "tone": "student",
-    "raw_text": "(1) This Constitution is the supreme law of the Republic and binds all persons and all State organs at both levels of government. (2) No person may claim or exercise State authority except as authorised under this Constitution. (3) The validity or legality of this Constitution is not subject to challenge by or before any court or other State organ. (4) Any law, including customary law, that is inc..."
-  },
-  "2_neutral": {
-    "article_number": 2,
-    "title": "Supremacy of this Constitution",
-    "summary": " This Constitution is the supreme law of the Republic and binds all persons and all State organs at both levels of government . No person may claim or exercise State authority except as authorised under this Constitution . The validity or legality of this Constitution is not subject to challenge by or before any court or other State organ .",
-    "tone": "neutral",
-    "raw_text": "(1) This Constitution is the supreme law of the Republic and binds all persons and all State organs at both levels of government. (2) No person may claim or exercise State authority except as authorised under this Constitution. (3) The validity or legality of this Constitution is not subject to challenge by or before any court or other State organ. (4) Any law, including customary law, that is inc..."
-  },
-  "56_neutral": {
-    "article_number": 56,
-    "title": "Minorities and marginalised groups",
-    "summary": " The State shall put in place afﬁrmative action programmes designed to ensure that minorities and marginalised groups participate and are represented in governance and other spheres of life .",
-    "tone": "neutral",
-    "raw_text": "The State shall put in place afﬁrmative action programmes designed to ensure that minorities and marginalised groups— (a) participate and are represented in governance and other spheres of life; (b) are provided special opportunities in educational and economic ﬁelds; 18  Constitution of Kenya Kenya (c) are provided special opportunities for access to employment; (d) develop their cultural values, languages and practices; and (e) have reasonable access to water, health services and infrastructure."
-  },
-  "6_neutral": {
-    "article_number": 6,
-    "title": "Devolution and access to services",
-    "summary": " The governments at the national and county levels are distinct and inter-dependent and shall conduct their mutual relations on the basis of consultation and cooperation . A national State organ shall ensure reasonable access to its services in all parts of the Republic .",
-    "tone": "neutral",
-    "raw_text": "(1) The territory of Kenya is divided into the counties speciﬁed in the First Schedule. (2) The governments at the national and county levels are distinct and inter-dependent and shall conduct their mutual relations on the basis of consultation and cooperation. (3) A national State organ shall ensure reasonable access to its services in all parts of the Republic, so far as it is appropriate to do so having regard to the nature of the service."
-  },
-  "1_neutral": {
-    "article_number": 1,
-    "title": "Sovereignty of the people",
-    "summary": " All sovereign power belongs to the people of Kenya and shall be exercised only in accordance with this Constitution . The people may exercise their sovereign power either directly or through their democratically elected representatives .",
-    "tone": "neutral",
-    "raw_text": "(1) All sovereign power belongs to the people of Kenya and shall be exercised only in accordance with this Constitution. (2) The people may exercise their sovereign power either directly or through their democratically elected representatives. (3) Sovereign power under this Constitution is delegated to the following State organs, which shall perform their functions in accordance with this Constitution— (a) Parliament and the legislative assemblies in the county governments; (b) the national executive and the executive structures in the county governments; and (c) the Judiciary and independent tribunals. (4) The sovereign power of the people is exercised at— (a) the national level; and (b) the county level. 1  Constitution of Kenya Kenya"
-  },
-  "66_neutral": {
-    "article_number": 66,
-    "title": "Regulation of land use and property",
-    "summary": " State may regulate use of any land in the interest of defence, public safety, public order, public morality, public health, or land use planning . Parliament shall enact legislation ensuring that investments in property beneﬁt local communities and their economies .",
-    "tone": "neutral",
-    "raw_text": "(1) The State may regulate the use of any land, or any interest in or right over any land, in the interest of defence, public safety, public order, public morality, public health, or land use planning. (2) Parliament shall enact legislation ensuring that investments in property beneﬁt local communities and their economies."
+    "icon": "information-circle",
+    "tag": "Legal Educator",
+    "color": "teal",
+    "summary": " The quorum of Parliament shall be– (a) ﬁfty members, in the case of the National Assembly; or (b) 14 members in the Senate . Just summarize clearly with no stylistic twist .",
+    "rawTextPreview": "The quorum of Parliament shall be– (a) ﬁfty members, in the case of the National Assembly; or (b) ﬁfteen members, in the case of the Senate.",
+    "confidence": 0.65,
+    "lawyerReferral": {
+      "name": "Adv. Wanjiku N.",
+      "location": "Kiambu County",
+      "email": "wanjiku@lawnet.ke",
+      "specialty": "Land & Constitutional Law",
+      "nextSteps": "This issue may require human legal advice."
+    },
+    "language": "en",
+    "references": [
+      {
+        "type": "foundational",
+        "label": "Constitution of Kenya (2010)",
+        "link": "https://www.kenyalaw.org/kl/index.php?id=398"
+      }
+    ]
   }
 }

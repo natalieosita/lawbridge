@@ -35,3 +35,11 @@ reference_lookup = {
 
     # Add more article references as needed
 }
+# 🔗 Global References
+global_references = [
+    {
+        "type": "foundational",
+        "label": "Constitution of Kenya (2010)",
+        "link": "https://www.kenyalaw.org/kl/index.php?id=398"
+    }
+]

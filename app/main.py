@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from app.routes.constitution import router as constitution_router
-from app.routes.explainer_distilbart import router as explainer_distilbart_router
 from app.routes.legal_bot import router as legal_bot_router
 from app.routes.compliance import router as compliance_router
 from app.routes.smart_compliance import router as smart_compliance_router
@@ -13,6 +12,5 @@ app.include_router(constitution_router)
 app.include_router(legal_bot_router)
 app.include_router(compliance_router)
 app.include_router(smart_compliance_router)
-app.include_router(explainer_distilbart_router)
 app.include_router(explainer_ai_router)
 app.include_router(rights_finder_router)

@@ -1,5 +1,8 @@
 from transformers import pipeline
-import json, os
+import json
+import os
+
+print("[DEBUG] explainer_distilbart.py imported")
 
 # Load summarizer model
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
@@ -11,29 +14,27 @@ with open("app/data/constitution.json", "r", encoding="utf-8") as f:
 CACHE_PATH = "app/data/explainer_cache.json"
 
 def load_cache():
-    """Load the explanation cache from disk."""
     if os.path.exists(CACHE_PATH):
         with open(CACHE_PATH, "r", encoding="utf-8") as f:
             return json.load(f)
     return {}
 
 def save_cache(cache):
-    """Save the explanation cache to disk."""
     with open(CACHE_PATH, "w", encoding="utf-8") as f:
         json.dump(cache, f, ensure_ascii=False, indent=2)
 
 def explain_article_distilbart(article_number: int, tone: str = "neutral") -> dict:
-    """
-    Generate or retrieve a summary explanation for a constitutional article in a specified tone.
-    """
+    print("[DEBUG] explain_article_distilbart called with:", article_number, tone)
+
     cache = load_cache()
     key = f"{article_number}_{tone}"
 
-    # 🔒 Check cache first
+    # ✅ Return cached formatted card if present
     if key in cache:
+        print("[DEBUG] Cache hit for", key)
         return cache[key]
 
-    # 📖 Lookup article text
+    # 📖 Lookup article
     for article in ARTICLES:
         if article.get("article_number") == str(article_number):
             title = article.get("title", "")
@@ -50,18 +51,41 @@ def explain_article_distilbart(article_number: int, tone: str = "neutral") -> di
             input_text = f"{tone_hint} Title: {title}. Article Text: {raw_text}"
             summary = summarizer(input_text, max_length=80, min_length=30, do_sample=False)[0]["summary_text"]
 
-            response = {
-                "article_number": article_number,
+            # ✅ Build civic card directly
+            formatted = {
+                "cardType": "explainer",
+                "articleNumber": article_number,
                 "title": title,
-                "summary": summary,
                 "tone": tone,
-                "raw_text": raw_text
+                "icon": "information-circle",
+                "tag": "Legal Educator",
+                "color": "teal",
+                "summary": summary,
+                "rawTextPreview": raw_text,
+                "confidence": 0.65,
+                "lawyerReferral": {
+                    "name": "Adv. Wanjiku N.",
+                    "location": "Kiambu County",
+                    "email": "wanjiku@lawnet.ke",
+                    "specialty": "Land & Constitutional Law",
+                    "nextSteps": "This issue may require human legal advice."
+                },
+                "language": "en",
+                "references": [
+                    {
+                        "type": "foundational",
+                        "label": "Constitution of Kenya (2010)",
+                        "link": "https://www.kenyalaw.org/kl/index.php?id=398"
+                    }
+                ]
             }
 
             # 💾 Save to cache
-            cache[key] = response
+            cache[key] = formatted
             save_cache(cache)
 
-            return response
+            print("[DEBUG] Returning formatted new card")
+            return formatted
 
+    print("[DEBUG] Article not found:", article_number)
     return {"error": f"Article {article_number} not found."}
