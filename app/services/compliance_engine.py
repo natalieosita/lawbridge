@@ -1,42 +1,70 @@
 import re
-from sentence_transformers import SentenceTransformer, util
 import json
+from typing import List
+from sentence_transformers import SentenceTransformer, util
+from app.models.situation import ComplianceResult
 
 # Load articles and model
 with open("app/data/constitution.json", "r", encoding="utf-8") as f:
     ARTICLES = json.load(f)
+
 model = SentenceTransformer('all-MiniLM-L6-v2')
 ARTICLE_EMBEDS = [
     model.encode(article.get("title", "") + " " + article.get("text", ""), convert_to_tensor=True)
     for article in ARTICLES
 ]
 
-def check_compliance(user_input, top_k=1):
+# Sample rule set (you can move this to a separate file)
+RULES = [
+    {
+        "pattern": r"\bdenied access\b",
+        "verdict": "non-compliant",
+        "article_number": 47,
+        "title": "Fair Administrative Action",
+        "summary": "Every person has the right to fair administrative action.",
+        "remedies": ["File a complaint with the relevant authority.", "Request written justification."]
+    },
+    {
+        "pattern": r"\bfreedom of expression\b",
+        "verdict": "compliant",
+        "article_number": 33,
+        "title": "Freedom of Expression",
+        "summary": "Every person has the right to freedom of expression.",
+        "remedies": []
+    }
+]
+
+def check_compliance(user_input: str, top_k: int = 1) -> ComplianceResult:
     """
-    Checks compliance by semantic similarity to constitutional articles.
+    Checks compliance using rule-based and semantic methods.
+    Returns a structured ComplianceResult.
     """
-    # 1. Try rule-based first for high precision
+    # Rule-based check
     for rule in RULES:
         if re.search(rule["pattern"], user_input, re.IGNORECASE):
-            return {
-                "verdict": rule["verdict"],
-                "article_reference": f"Article {rule['article_number']}",
-                "title": rule["title"],
-                "summary": rule["summary"],
-                "method": "rule-based"
-            }
+            verdict = rule["verdict"]
+            if verdict == "compliant":
+                return ComplianceResult(
+                    is_compliant=True,
+                    is_unclear=False,
+                    suggested_remedies=[]
+                )
+            elif verdict == "non-compliant":
+                return ComplianceResult(
+                    is_compliant=False,
+                    is_unclear=False,
+                    suggested_remedies=rule.get("remedies", [])
+                )
 
-    # 2. Fallback to semantic search
+    # Semantic fallback
     query_embedding = model.encode(user_input, convert_to_tensor=True)
     scores = [util.pytorch_cos_sim(query_embedding, art_emb).item() for art_emb in ARTICLE_EMBEDS]
     top_idx = max(range(len(scores)), key=lambda i: scores[i])
     top_article = ARTICLES[top_idx]
-    summary = top_article.get("text", "")[:350] + "..." if len(top_article.get("text", "")) > 350 else top_article.get("text", "")
 
-    return {
-        "verdict": "refer",
-        "article_reference": f"Article {top_article.get('article_number', 'N/A')}",
-        "title": top_article.get("title", ""),
-        "summary": summary,
-        "method": "semantic"
-    }
+    # Treat semantic matches as "unclear" for now
+    return ComplianceResult(
+        is_compliant=False,
+        is_unclear=True,
+        suggested_remedies=[]
+    )

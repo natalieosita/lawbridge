@@ -1,0 +1,19 @@
+
+ [
+  {
+    "name": "Adv. Wanjiku N.",
+    "email": "wanjiku@lawnet.ke",
+    "phone": "+254712345678",
+    "location": "Kiambu",
+    "specialties": ["Land", "Constitutional Law"],
+    "verified": true
+  },
+  {
+    "name": "Adv. Otieno M.",
+    "email": "otieno@justicehub.ke",
+    "phone": "+254798765432",
+    "location": "Nairobi",
+    "specialties": ["Criminal Law", "Human Rights"],
+    "verified": true
+  }
+ ]

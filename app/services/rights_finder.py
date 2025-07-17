@@ -30,3 +30,23 @@ def find_matching_articles(query: str, top_k: int = 3):
             results.append(summary)
 
     return results
+def find_rights(query: str) -> dict:
+    """
+    Wraps find_matching_articles and formats a civic card for rights discovery.
+    """
+    summaries = find_matching_articles(query, top_k=3)
+
+    return {
+        "cardType": "rightsFinder",
+        "title": "Your Constitutional Rights",
+        "query": query,
+        "relatedRights": [
+            {
+                "article": s.get("article_number", "N/A"),
+                "title": s.get("title", ""),
+                "summary": s.get("summary", "")
+            }
+            for s in summaries
+        ],
+        "language": "en"
+    }
