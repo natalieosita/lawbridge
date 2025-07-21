@@ -103,11 +103,34 @@ LawBridge’s frontend and backend interface supports case registration, authent
 
 ```plaintext
 lawbridge/
-├── client/        # React frontend
-├── server/        # Express.js backend
-├── api/           # FastAPI legal intelligence engine
-├── .github/       # GitHub Actions workflows
-└── README.md      # Combined documentation
+├── client/               # React frontend
+│   ├── src/
+│   │   ├── api/          # Axios & React Query hooks
+│   │   ├── components/   # UI components
+│   │   ├── pages/        # Routed views
+│   │   ├── styles/       # global.js, theme.js
+│   │   └── utils/        # tokenUtils, authUtils
+│   ├── public/           # Static assets
+│   ├── .env.local        # Frontend env vars
+│   ├── vercel.json       # Vercel config
+│   └── README.md         # Frontend doc
+│
+├── server/               # Express backend
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   ├── utils/
+│   ├── .env.example      # Backend env template
+│   ├── render.yaml       # Render config
+│   └── README.md         # Backend doc
+│
+├── .github/              # CI/CD workflows
+│   └── workflows/
+│       ├── backend.yml
+│       └── frontend.yml
+│
+└── README.md             # Master documentation
 ```
 
 ---
