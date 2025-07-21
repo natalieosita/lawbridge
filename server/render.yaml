@@ -3,16 +3,12 @@ services:
     name: lawbridge-api
     env: node
     buildCommand: npm install
-    startCommand: npm start
-    repo: https://github.com/your-org/lawbridge-backend
-    branch: main
+    startCommand: npm run start
     envVars:
       - key: MONGO_URI
-        value: <your-MongoDB-Atlas-connection-string>
+        value: your-mongodb-uri
       - key: JWT_SECRET
-        value: <secure-jwt-secret>
+        value: your-jwt-secret
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 5000
     healthCheckPath: /health
