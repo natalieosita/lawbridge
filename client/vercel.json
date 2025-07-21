@@ -1,0 +1,10 @@
+{
+  "buildCommand": "yarn build",
+  "outputDirectory": "build",
+  "framework": "create-react-app",
+  "env": {
+    "REACT_APP_API_URL": "https://lawbridge-api.onrender.com",
+    "REACT_APP_GOOGLE_ANALYTICS_ID": "UA-XXXXXX-Y",
+    "REACT_APP_SENTRY_DSN": "https://examplePublicKey@o0.ingest.sentry.io/0"
+  }
+}
