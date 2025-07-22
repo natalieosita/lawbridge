@@ -1,27 +1,68 @@
-import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
-import dotenv from 'dotenv';
-import morgan from 'morgan';
-import connectDB from './utils/db.js';
-import authRoutes from './routes/authRoutes.js';
-import caseRoutes from './routes/caseRoutes.js';
-import { errorHandler, notFound } from './middleware/errorMiddleware.js';
-
-dotenv.config();
-connectDB();
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const jwt = require('jsonwebtoken');
+const path = require('path');
 
 const app = express();
-app.use(helmet());
-app.use(cors());
-app.use(express.json());
-app.use(morgan('dev'));
-
-app.get('/health', (_, res) => res.status(200).json({ status: 'ok', uptime: process.uptime() }));
-app.use('/auth', authRoutes);
-app.use('/cases', caseRoutes);
-app.use(notFound);
-app.use(errorHandler);
-
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Backend running on port ${PORT}`));
+
+// ✅ CORS setup (Vercel frontend + local dev)
+const allowedOrigins = [
+  'https://lawbridge.vercel.app',
+  'http://localhost:3000'
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
+
+// ✅ Middleware
+app.use(express.json());
+
+// ✅ MongoDB Connection
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log('✅ MongoDB connected'))
+.catch((err) => console.error('❌ MongoDB error:', err.message));
+
+// ✅ JWT Middleware for protected routes
+const verifyToken = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader?.startsWith('Bearer ')) {
+    return res.status(401).json({ message: 'Missing token' });
+  }
+
+  const token = authHeader.split(' ')[1];
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch {
+    res.status(401).json({ message: 'Invalid token' });
+  }
+};
+
+// ✅ Health check route for Render
+app.get('/health', (req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date() });
+});
+
+// ✅ Route registration
+app.use('/auth', require('./routes/auth'));
+app.use('/cases', verifyToken, require('./routes/cases'));
+
+// ✅ Start the server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});

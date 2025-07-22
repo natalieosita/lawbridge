@@ -1,9 +1,8 @@
-import express from 'express';
-import { getAllCases, createCase } from '../controllers/caseController.js';
-import { verifyToken } from '../middleware/authMiddleware.js';
-
+const express = require('express');
 const router = express.Router();
-router.get('/', verifyToken, getAllCases);
-router.post('/', verifyToken, createCase);
+const { getCases, createCase } = require('../controllers/caseController');
 
-export default router;
+router.get('/', getCases);
+router.post('/', createCase);
+
+module.exports = router;

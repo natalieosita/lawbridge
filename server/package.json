@@ -1,0 +1,26 @@
+{
+  "name": "lawbridge-server",
+  "version": "1.0.0",
+  "description": "Legal access backend API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4",
+    "nodemon": "^3.1.0"
+  },
+  "keywords": [],
+  "author": "LawBridge Team",
+  "license": "MIT"
+}
