@@ -59,8 +59,8 @@ app.get('/health', (req, res) => {
 });
 
 // ✅ Route registration
-app.use('/auth', require('./routes/auth'));
-app.use('/cases', verifyToken, require('./routes/cases'));
+app.use('/auth', require('./routes/authRoutes'));
+app.use('/cases', verifyToken, require('./routes/caseRoutes'));
 
 // ✅ Start the server
 app.listen(PORT, () => {
