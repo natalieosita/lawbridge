@@ -278,7 +278,7 @@ run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
 
 ## 📜 User Guide
 
-1. Visit `https://lawbridge-6n006rrhp-natalieositas-projects.vercel.app/`
+1. Visit `https://lawbridge-seven.vercel.app/`
 2. Register and login
 3. Access dashboard and submit cases
 4. Use theme toggle to switch UI appearance
