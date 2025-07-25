@@ -1,0 +1,21 @@
+# === Environment Variables ===
+.env
+.env.local
+.env.example
+.env.test
+
+# === IDEs ===
+.vscode/
+
+# === React Specific
+client/.env
+client/node_modules/
+
+# === Server Specific ===
+server/.env
+server/node_modules/
+server/logs/
+
+# === Vercel ===
+# Ignore Vercel CLI config unless you're using it
+.vercel/
