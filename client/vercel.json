@@ -1,6 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "build",
-  "framework": "create-react-app",
-  "ignoreCommand": "echo 'No need to ignore files'"
+  "framework": "create-react-app"
 }
